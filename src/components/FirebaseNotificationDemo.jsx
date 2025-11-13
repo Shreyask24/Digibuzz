@@ -19,8 +19,7 @@ export default function FirebaseNotificationDemo() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          token:
-            "eErPaUvQG301Z5lB-MRrjo:APA91bFCc-SO6qjIXZhYL_iw1cIJvYlCpWTbqht4eLYxcvBGHWy8FBBB_mQwZNSUPGbDatamBRtACyIMrEj68BNXRCtTnyF5eoIzy9yAm7PFX0ZsZfTmujY",
+          token: token,
           title: "Notification from Shreyas Kallurkar",
           body: "Works perfectly!",
         }),
