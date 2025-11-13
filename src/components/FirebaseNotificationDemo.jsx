@@ -12,6 +12,8 @@ export default function FirebaseNotificationDemo() {
   }, []);
 
   useEffect(() => {
+    if (!token) return;
+
     async function sendPush() {
       await fetch("/.netlify/functions/send", {
         method: "POST",
@@ -19,7 +21,7 @@ export default function FirebaseNotificationDemo() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          token: token,
+          token,
           title: "Notification from Shreyas Kallurkar",
           body: "Works perfectly!",
         }),
@@ -27,7 +29,7 @@ export default function FirebaseNotificationDemo() {
     }
 
     sendPush();
-  }, []);
+  }, [token]); // ← run only when token is available
 
   useEffect(() => {
     const unsubscribe = startOnMessage((payload) => {
