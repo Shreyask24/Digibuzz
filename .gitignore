@@ -23,7 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
-netlify/functions/service-account.json
+# netlify/functions/service-account.json
 
 node_modules/
 
