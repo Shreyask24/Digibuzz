@@ -28,3 +28,6 @@ netlify/functions/service-account.json
 node_modules/
 
 netlify/functions/node_modules
+
+# Local Netlify folder
+.netlify

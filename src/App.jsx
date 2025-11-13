@@ -8,7 +8,7 @@ import MultiSelectDropdown from "./components/MultiSelectDropdown";
 function App() {
   return (
     <>
-      <div className="min-h-screen flex justify-center flex-col items-center bg-gray-900">
+      <div className="min-h-screen flex justify-center flex-col items-center bg-gray-800">
         <DateTimeInput />
         <MultiSelectDropdown />
         <ChartWidget />

@@ -5,32 +5,32 @@ export default function FirebaseNotificationDemo() {
   const [token, setToken] = useState("");
   const [notification, setNotification] = useState(null);
 
-  // 1) Ask permission and get token on mount
   useEffect(() => {
     requestPermission().then((fcmToken) => {
       if (fcmToken) setToken(fcmToken);
     });
   }, []);
 
-  async function sendPush() {
-    await fetch("/.netlify/functions/send", {
-      method: "POST",
-      body: JSON.stringify({
-        token:
-          "erhStTgkTL89GAMYFv98Ns:APA91bH7IXZQlEsCE3z4ZKtoWTwesEIvrWKPy4MsIXUbduzicArVjN-7kx9tm84cQYeecR_o58WvscaF8oCOesCXT4zAdA_PoJZlG0xk4hapsome2gO6ZkU",
-        title: "Notification from Netlify",
-        body: "Works perfectly!",
-      }),
-    });
-  }
+  useEffect(() => {
+    async function sendPush() {
+      await fetch("/.netlify/functions/send", {
+        method: "POST",
+        body: JSON.stringify({
+          token:
+            "eErPaUvQG301Z5lB-MRrjo:APA91bFCc-SO6qjIXZhYL_iw1cIJvYlCpWTbqht4eLYxcvBGHWy8FBBB_mQwZNSUPGbDatamBRtACyIMrEj68BNXRCtTnyF5eoIzy9yAm7PFX0ZsZfTmujY",
+          title: "Notification from Shreyas Kallurkar",
+          body: "Works perfectly!",
+        }),
+      });
+    }
 
-  // 2) Listen for foreground messages (cleanly)
+    sendPush();
+  }, []);
+
   useEffect(() => {
     const unsubscribe = startOnMessage((payload) => {
-      // 👉 Debug: log entire payload so you can inspect structure
       console.log("📩 Foreground payload:", payload);
 
-      // Many payloads put data in payload.data (data-only), or payload.notification
       const title =
         payload?.notification?.title || payload?.data?.title || "No title";
       const body =
@@ -39,7 +39,6 @@ export default function FirebaseNotificationDemo() {
       setNotification({ title, body });
     });
 
-    // Cleanup the listener when component unmounts
     return () => {
       if (typeof unsubscribe === "function") unsubscribe();
     };
@@ -53,7 +52,6 @@ export default function FirebaseNotificationDemo() {
   };
 
   const crash = () => {
-    // Simulate crash (don't wrap in alert; throw simple error)
     throw new Error("Simulated crash for Crashlytics test");
   };
 

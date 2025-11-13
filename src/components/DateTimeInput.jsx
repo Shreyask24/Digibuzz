@@ -16,7 +16,9 @@ export default function DateTimeInput() {
   };
 
   return (
-    <div className="relative w-80">
+    <div className="bg-gray-900 p-5 rounded-xl text-white shadow-lg relative w-80 mt-5 mb-10">
+      <h2 className="text-lg font-semibold mb-3">Date & Time</h2>
+
       {/* Input Field */}
       <input
         type="text"
@@ -33,7 +35,7 @@ export default function DateTimeInput() {
 
       {/* Show Picker Below Input */}
       {isPickerOpen && (
-        <div className="absolute top-14 left-0 z-50">
+        <div className="absolute top-30 left-0 z-50">
           <DateTimePicker onSet={handleSet} onCancel={handleCancel} />
         </div>
       )}
