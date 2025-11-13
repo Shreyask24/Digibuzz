@@ -15,6 +15,9 @@ export default function FirebaseNotificationDemo() {
     async function sendPush() {
       await fetch("/.netlify/functions/send", {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           token:
             "eErPaUvQG301Z5lB-MRrjo:APA91bFCc-SO6qjIXZhYL_iw1cIJvYlCpWTbqht4eLYxcvBGHWy8FBBB_mQwZNSUPGbDatamBRtACyIMrEj68BNXRCtTnyF5eoIzy9yAm7PFX0ZsZfTmujY",
