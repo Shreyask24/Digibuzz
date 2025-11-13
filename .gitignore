@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+netlify/functions/service-account.json
+
+node_modules/
+
+netlify/functions/node_modules
