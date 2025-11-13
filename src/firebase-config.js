@@ -25,7 +25,7 @@ export async function requestPermission() {
     }
     const token = await getToken(messaging, {
       vapidKey:
-        "BNm0Q1MrlYHTCmECZbA1Y9GxZQU-KtzhSm0KB_wjDvMHbYhZV5pKL_-Pw9vfRURjHT2KrEhBF4_qPrz20bsaUmM",
+        "BGdqXwGRo-7HSigS4DeAJOjd8et1cDcQrHiflinC7_i-fH5WBZJu4GEpz5suE5AdZKqQEYdVooIVPR0Fg7FevZQ",
     });
     console.log("FCM Token:", token);
     return token;
