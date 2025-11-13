@@ -27,7 +27,7 @@ export default function MultiFileUpload() {
   const handleDragOver = (e) => e.preventDefault();
 
   return (
-    <div className="w-full max-w-lg mx-auto mt-10 bg-gray-900 text-white p-6 rounded-2xl shadow-lg">
+    <div className="w-full max-w-lg mx-auto mt-10 min-w-fit bg-gray-900 text-white p-6 rounded-2xl shadow-lg">
       <h2 className="text-xl font-semibold mb-4 text-center">
         Upload Supporting Documents
       </h2>
@@ -101,7 +101,7 @@ export default function MultiFileUpload() {
                 onClick={() => handleRemove(file.name)}
                 className="text-red-500 hover:text-red-400 text-sm font-medium"
               >
-                ✕
+                Remove
               </button>
             </div>
           ))}
